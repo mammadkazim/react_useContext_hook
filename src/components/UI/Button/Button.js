@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../../../UserContext';
 
-const Button = (props) => {
+const Button = () => {
+  const {theme, setTheme} = useContext(UserContext)
+  const changeThemeHandler = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
-    <button onClick={props.changeTheme}>change theme</button>
+    <button onClick={changeThemeHandler}>change theme</button>
   )
 }
 

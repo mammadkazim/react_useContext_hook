@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../../UserContext'
 import Button from '../UI/Button/Button'
 const Header = (props) => {
+  const {setType} = useContext(UserContext)
   return (
     <header>
         <h1>title</h1>
         <div>
-          <button onClick={()=>{props.changeType('users')}} >Users</button>
-          <button onClick={()=>{props.changeType('posts')}} >Posts</button>
+          <button onClick={()=>{setType('users')}} >Users</button>
+          <button onClick={()=>{setType('posts')}} >Posts</button>
         </div>
-        <Button changeTheme={props.changeTheme}/>
+        <Button />
     </header>
   )
 }
